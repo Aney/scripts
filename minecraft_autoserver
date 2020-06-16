@@ -1,0 +1,32 @@
+# Minecraft server install script, for when you're too lazy
+# Written on Ubuntu
+
+# Make minecraft user
+sudo useradd -d minecraft
+sudo passwd -d minecraft
+su minecraft
+
+# Make directory for minecraft server
+mkdir minecraft_server
+cd minecraft_server
+
+# Install dependencies
+sudo apt install default-jre tmux curl wget
+
+# Find and download newest minecraft server.jar
+wget $(curl https://www.minecraft.net/en-us/download/server/ | grep -oP '(?<=a href=").*(server.jar)')
+# Accept eula
+echo "eula=true" >> eula.txt
+# Create the server script
+echo "java -Xmx1024M -Xms1024M -jar server.jar nogui" >> start_server
+
+# Create script to start minecraft server
+
+# Create systemd startup for minecraft server
+
+# New tmux session and start the server
+tmux new -d -s minecraft_server
+tmux send 'bash start_server' ENTER;
+tmux a; # Attach
+
+
