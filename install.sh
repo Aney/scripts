@@ -2,10 +2,6 @@
 
 # Terminal shit
 sudo apt install git zsh tmux vim neofetch wget curl gdebi parted
-# Oh my zsh
-sudo sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
-# Change default shell to zsh
-sudo chsh -s /bin/zsh
 
 # Image viewer, music player, rss feed, etc
 sudo apt install feh cmus newsboat
@@ -44,3 +40,8 @@ curl -L https://github.com/gokcehan/lf/releases/latest/download/lf-linux-amd64.t
 # dwm Window manager
 # dmenu Launcher
 # st Terminal
+
+# Oh my zsh
+sudo sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+# Change default shell to zsh
+sudo chsh -s /bin/zsh
