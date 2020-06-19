@@ -10,7 +10,7 @@ sudo apt install feh cmus newsboat
 sudo apt install gtypist
 
 # GUI shit 
-sudo apt install lightdm 
+#sudo apt install lightdm 
 
 # Dotfiles
 
@@ -42,6 +42,6 @@ curl -L https://github.com/gokcehan/lf/releases/latest/download/lf-linux-amd64.t
 # st Terminal
 
 # Oh my zsh
-sudo sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
 # Change default shell to zsh
-sudo chsh -s /bin/zsh
+chsh -s /bin/zsh
