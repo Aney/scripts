@@ -1,31 +1,41 @@
-# This install majiggy is for something with x
+# This install script is for a debian based distro
+# ideally a minimal install
+
+# Install X and sudo so other things can work
+apt install sudo xorg
 
 # Terminal shit
-sudo apt install git zsh tmux vim neofetch wget curl gdebi parted
+apt install git zsh tmux vim neofetch wget curl gdebi parted
 
 # Image viewer, music player, rss feed, etc
-sudo apt install feh cmus newsboat
+apt install feh cmus newsboat youtube-dl
+
+# Network Tools
+apt install net-tools wicd
+
+# Audio
+apt install alsa-utils alsa-oss pulseaudio pavucontrol
 
 # Random shit
-sudo apt install gtypist
+apt install gtypist sensors
 
 # GUI shit 
-#sudo apt install lightdm 
+apt install transmission
 
 # Dotfiles
 
 # brave-browser
 # https://brave-browser.readthedocs.io/en/latest/installing-brave.html#linux
 # Can be built from source, but takes a long while
-sudo apt install apt-transport-https
+apt install apt-transport-https
 
 curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add -
 
 echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list
 
-sudo apt update
+apt update
 
-sudo apt install brave-browser
+apt install brave-browser
 
 # lf file manager
 mkdir ~/.local/bin
@@ -36,6 +46,7 @@ curl -L https://github.com/gokcehan/lf/releases/latest/download/lf-linux-amd64.t
 
 # Suckless
 # Pre-requisites
+apt install libx11-dev libxft-dev libxinerama-dev
 
 # dwm Window manager
 # dmenu Launcher
