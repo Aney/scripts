@@ -56,3 +56,4 @@ apt install libx11-dev libxft-dev libxinerama-dev
 sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
 # Change default shell to zsh
 chsh -s /bin/zsh
+echo "export PATH=~/.local/bin:\$PATH" >> .zshrc

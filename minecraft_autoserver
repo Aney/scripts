@@ -3,6 +3,7 @@
 
 # Make minecraft user
 sudo useradd -d minecraft
+# Delete the password
 sudo passwd -d minecraft
 
 # Switch to minecraft user
@@ -13,7 +14,7 @@ mkdir minecraft_server
 cd minecraft_server
 
 # Install dependencies
-sudo apt install default-jre tmux curl wget
+sudo apt install java-openjdk default-jre tmux curl wget
 
 # Find and download newest minecraft server.jar
 wget $(curl https://www.minecraft.net/en-us/download/server/ | grep -oP '(?<=a href=").*(server.jar)')
