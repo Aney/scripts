@@ -2,25 +2,28 @@
 # ideally a minimal install
 
 # Install X and sudo so other things can work
-apt install sudo xorg
+apt install sudo xorg -y
+
+# Update baybee
+apt update && upgrade -y
 
 # Terminal shit
-apt install git zsh tmux vim neofetch wget curl gdebi parted
+apt install git zsh tmux vim neofetch wget curl gdebi parted -y
 
 # Image viewer, music player, rss feed, etc
-apt install feh cmus newsboat youtube-dl
+apt install feh cmus newsboat youtube-dl -y
 
 # Network Tools
-apt install net-tools wicd
+apt install net-tools wicd -y
 
 # Audio
-apt install alsa-utils alsa-oss pulseaudio pavucontrol
+apt install alsa-utils alsa-oss pulseaudio pavucontrol -y
 
 # Random shit
-apt install gtypist sensors
+apt install gtypist sensors -y
 
 # GUI shit 
-apt install transmission
+apt install transmission -y
 
 # Dotfiles
 
@@ -35,25 +38,36 @@ echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable ma
 
 apt update
 
-apt install brave-browser
+apt install brave-browser -y
 
 # lf file manager
 mkdir ~/.local/bin
 # Add to path for this session
 export PATH=~/.local/bin:$PATH
+# Add to bash, this will be switched to zsh when I figure that out 
+echo "export PATH=~/.local/bin:\$PATH" >> .bashrc
 # Download a pre-built binary
 curl -L https://github.com/gokcehan/lf/releases/latest/download/lf-linux-amd64.tar.gz | tar xzC ~/.local/bin
 
 # Suckless
 # Pre-requisites
-apt install libx11-dev libxft-dev libxinerama-dev
+apt install libx11-dev libxft-dev libxinerama-dev -y
 
+# Suckless
 # dwm Window manager
+mkdir ~/git
+cd ~/git
+git clone https://git.suckless.org/dwm
+cd dwm
+make clean install
+
+#	gruvbox, hotkeys
+#	actualfullscreen, bottomstack, centeredwindowname, fullgaps, swallow
 # dmenu Launcher
 # st Terminal
 
 # Oh my zsh
-sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+#sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
 # Change default shell to zsh
-chsh -s /bin/zsh
-echo "export PATH=~/.local/bin:\$PATH" >> .zshrc
+#chsh -s /bin/zsh
+#echo "export PATH=~/.local/bin:\$PATH" >> .zshrc
