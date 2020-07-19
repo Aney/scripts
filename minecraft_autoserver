@@ -1,29 +1,43 @@
+#
+# THIS HAS HALTED FOR NOW, CURRENTLY JUST USING MINEOS.
+#
+
 # Minecraft server install script, for when you're too lazy
 # Written on Ubuntu
 
-# Make minecraft user
-sudo useradd -d minecraft
-# Delete the password
-sudo passwd -d minecraft
+# Revision stolen from https://linuxize.com/post/how-to-install-minecraft-server-on-debian-9/
+
+# Make minecraft user, no password, home = /opt/minecraft
+#sudo useradd -d minecraft
+sudo useradd -r -m -U -d /opt/minecraft -s /bin/bash minecraft
 
 # Switch to minecraft user
-su minecraft
+sudo su -  minecraft
 
 # Make directory for minecraft server
-mkdir minecraft_server
-cd minecraft_server
+mkdir backups tools server
+# backups = Backups
+# tools = backup script, etc
+# server = server
+
+#mkdir minecraft_server
+cd ~/server 
 
 # Install dependencies
 sudo apt install java-openjdk default-jre tmux curl wget
+# openjdk-11-jre-headless
 
 # Find and download newest minecraft server.jar
-wget $(curl https://www.minecraft.net/en-us/download/server/ | grep -oP '(?<=a href=").*(server.jar)')
+# and put it into server directory
+wget $(curl https://www.minecraft.net/en-us/download/server/ | grep -oP '(?<=a href=").*(server.jar)') -P ~/server
 # Accept eula
 echo "eula=true" >> eula.txt
+
 # Create the server script
 echo "java -Xmx1024M -Xms1024M -jar server.jar nogui" >> start_server
 sudo chmod +x start_server 
 
+# Set up mcron
 
 # Create systemd startup for minecraft server
 
