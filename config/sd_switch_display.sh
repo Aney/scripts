@@ -11,12 +11,12 @@ then
 	#xrandr --output VGA-1 --auto --mode 1600x900 --primary --output LVDS-1 --off
 elif [ $1 == 2 ]
 then
-	xrandr --output LVDS-1 --off --output DP-2 --primary --mode 1920x1080 --auto --left-of VGA-1 --output VGA-1 --auto --mode 1600x900 
+	xrandr --output LVDS-1 --off --output DP-2 --primary --mode 1920x1080 --auto --left-of VGA-1 --output VGA-1 --auto --mode 1600x900 --rotate right 
 else
 	xrandr --output VGA-1 --off --output DP-2 --off --output LVDS-1 --auto --primary
 fi
 
-feh --bg-scale ~/pictures/wallpapers/mist_forrest.jpg
+feh --bg-fill ~/pictures/wallpapers/mist_forrest.jpg
 
 
 # Switch Caps and Escape

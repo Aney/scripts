@@ -14,18 +14,16 @@ apt install git zsh tmux vim neofetch wget curl gdebi parted -y
 apt install feh cmus newsboat youtube-dl -y
 
 # Network Tools
-apt install net-tools wicd -y
+#apt install net-tools wicd -y
 
 # Audio
 apt install alsa-utils alsa-oss pulseaudio pavucontrol -y
 
 # Random shit
-apt install gtypist sensors -y
+apt install gtypist -y
 
-# GUI shit 
-apt install transmission -y
-
-# Dotfiles
+# Torrenting 
+apt install transmission-daemon transmission-cli -y
 
 # brave-browser
 # https://brave-browser.readthedocs.io/en/latest/installing-brave.html#linux
@@ -49,11 +47,11 @@ echo "export PATH=~/.local/bin:\$PATH" >> .bashrc
 # Download a pre-built binary
 curl -L https://github.com/gokcehan/lf/releases/latest/download/lf-linux-amd64.tar.gz | tar xzC ~/.local/bin
 
-# Suckless
-# Pre-requisites
+# Window Manager
+
+# Suckless pre-requisites
 apt install libx11-dev libxft-dev libxinerama-dev -y
 
-# Suckless
 # dwm Window manager
 mkdir ~/git
 cd ~/git
@@ -61,10 +59,12 @@ git clone https://git.suckless.org/dwm
 cd dwm
 make clean install
 
+# st terminal
+
+# dmenu launcher
+
 #	gruvbox, hotkeys
 #	actualfullscreen, bottomstack, centeredwindowname, fullgaps, swallow
-# dmenu Launcher
-# st Terminal
 
 # Oh my zsh
 #sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
