@@ -1,0 +1,1 @@
+docker run -dit --name aney-web -p 8080:80 -v /home/nathan/documents/81-89_development/81_websites/81.01_aney.co.uk/www/:/usr/local/apache2/htdocs/ httpd:2.4

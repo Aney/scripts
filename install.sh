@@ -13,6 +13,9 @@ apt install git zsh tmux vim neofetch wget curl gdebi parted -y
 # Image viewer, music player, rss feed, etc
 apt install feh cmus newsboat youtube-dl -y
 
+# PDF Reader
+apt install zathura
+
 # Network Tools
 #apt install net-tools wicd -y
 
@@ -23,7 +26,9 @@ apt install alsa-utils alsa-oss pulseaudio pavucontrol -y
 apt install gtypist -y
 
 # Torrenting 
-apt install transmission-daemon transmission-cli -y
+apt install transmission-daemon transmission-cli transmission-remote-cli -y
+
+# Setup the user for transmission-daemon
 
 # brave-browser
 # https://brave-browser.readthedocs.io/en/latest/installing-brave.html#linux
