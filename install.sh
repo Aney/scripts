@@ -2,7 +2,7 @@
 # ideally a minimal install
 
 # Install X and sudo so other things can work
-apt install sudo xorg -y
+apt install sudo xorg  build-essential -y
 
 # Update baybee
 apt update && upgrade -y
