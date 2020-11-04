@@ -1,0 +1,8 @@
+#!/bin/sh
+
+choice=$(echo "No\nYes" | dmenu -i -p "Do you?")
+
+case "$choice" in
+	"No") echo "ttt";;
+	"Yes") echo "ttt";;
+esac
