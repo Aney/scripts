@@ -11,7 +11,7 @@ apt update && upgrade -y
 apt install git zsh tmux vim neofetch wget -y
 
 # Image viewer, music player, rss feed, etc
-apt install cmus newsboat youtube-dl -y
+apt install cmus newsboat youtube-dl mpv -y
 
 # Image viewer, PDF Reader (GUI)
 apt install feh zathura -y
@@ -30,14 +30,22 @@ apt install gtypist -y
 
 # Torrenting 
 apt install transmission-daemon transmission-cli transmission-remote-cli -y
+
+#systemctl stop transmission-daemon.service
+#/lib/systemd/system/tranmission-daemon.service # Change username to user
+# systemctl daemon-reload
+# start service
+
 # Setup the user for transmission-daemon
 
-# lf file manager
+# Setup the bin directory for custom scripts
 mkdir ~/.local/bin
+# Vi mode terminal and local bin
+echo "set -o vi\nexport PATH=~/.local/bin:\$PATH" >> .zshrc
 # Add to path for this session
 export PATH=~/.local/bin:$PATH
-# Add to bash, this will be switched to zsh when I figure that out 
-echo "export PATH=~/.local/bin:\$PATH" >> .bashrc
+
+# lf file manager
 # Download a pre-built binary
 curl -L https://github.com/gokcehan/lf/releases/latest/download/lf-linux-amd64.tar.gz | tar xzC ~/.local/bin
 
