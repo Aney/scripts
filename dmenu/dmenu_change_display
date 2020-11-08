@@ -1,0 +1,10 @@
+#!/bin/bash
+
+display=$(printf "external\\nboth\\ninternal" | dmenu -i -p "Display as: ")
+
+case $display in
+	"external") echo "extersn";;
+	"both") echo "bdsfkdsfja";;
+	"internal") echo "ajflkjalkf";;
+esac
+

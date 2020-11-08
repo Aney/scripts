@@ -1,32 +1,46 @@
 #!/bin/sh
 
-recording=$(echo "both\nvideo\naudio" | dmenu -i -p "What do:")
-
-case "$recording" in
-	"both")
-		record_both();;
-	"video")
-		;;
-	"audio")
-		;;
-esac
-
 record_both() {
-	ffmpeg -y \ 
+	ffmpeg -y \
 	-f x11grab \
-	-framerate 30 \
 	-s 1280x720 \
 	-i :0.0 \
 	-f alsa -i default \
-	"~/recordings/out-$(date '+%m%d-%H%M').mkv" &
-	echo $! > /tmp/recoringpid
+	"$HOME/recordings/out-$(date '+%m%d-%H%M').mkv" &
+	echo $! > /tmp/recordingpid
+	echo "[rec]" > $HOME/x
 }
 
 end_recording() { \
 	recpid="$(cat /tmp/recordingpid)"
 	kill -15 "$recpid"
+	echo "[]" > $HOME/x
 	rm -f /tmp/recordingpid
 	sleep 3
 	kill -9 "$recpid"
 	exit
 }
+
+select_recording_type() {
+	recording=$(printf "both\nvideo\naudio\nend" | dmenu -i -p "What do:")
+
+	case "$recording" in
+		"both")
+			record_both;;
+		"video")
+			;;
+		"audio")
+			;;
+		"end")
+			end_recording;;
+	esac
+}
+
+case "$1" in
+	"both")
+		record_both;;
+	"end")
+		end_recording;;
+	*)
+		select_recording_type;;
+esac
