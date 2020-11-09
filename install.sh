@@ -8,7 +8,7 @@ apt install sudo xorg build-essential -y
 apt update && upgrade -y
 
 # Add the user to sudo?
-useradd -g nathan sudo
+adduser nathan sudo
 
 # Terminal shit
 apt install git zsh tmux vim neofetch wget -y
