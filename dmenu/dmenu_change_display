@@ -1,10 +1,26 @@
 #!/bin/bash
 
-display=$(printf "external\\nboth\\ninternal" | dmenu -i -p "Display as: ")
+display=$(printf "external\\nextend\\ninternal\\nduplicate" | dmenu -i -p "Display: ")
+
+internal() {
+	xrandr --output LVDS \
+	--primary \
+	--auto
+}
 
 case $display in
 	"external") echo "extersn";;
-	"both") echo "bdsfkdsfja";;
+	"extend") echo "bdsfkdsfja";;
 	"internal") echo "ajflkjalkf";;
 esac
+
+case "$1" in
+	"external")
+		external;;
+	"internal")
+		internal;;
+	"extend")
+		extend;;
+	"duplicate")
+		duplicate;;
 
