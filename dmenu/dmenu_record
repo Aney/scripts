@@ -8,13 +8,13 @@ record_both() {
 	-f alsa -i default \
 	"$HOME/recordings/out-$(date '+%m%d-%H%M').mkv" &
 	echo $! > /tmp/recordingpid
-	echo "[rec]" > $HOME/x
+	echo "[rec]" > $HOME/recordings/.recording_status
 }
 
 end_recording() { \
 	recpid="$(cat /tmp/recordingpid)"
 	kill -15 "$recpid"
-	echo "[]" > $HOME/x
+	echo "[]" > $HOME/recordings/.recording_status
 	rm -f /tmp/recordingpid
 	sleep 3
 	kill -9 "$recpid"
