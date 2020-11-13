@@ -62,6 +62,7 @@ apt install brave-browser -y
 
 # Suckless pre-requisites
 apt install libx11-dev libxft-dev libxinerama-dev -y
+apt install libx11-xcb-dev libxcb-res0-dev -y
 
 # User
 su nathan 
