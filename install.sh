@@ -1,7 +1,7 @@
 # This install script is for a debian based distro
 # ideally a minimal install
 
-# Ask what wants to be installed, then if statement each section.
+# Ask what wants to be installed, then if statement each section. Test.
 
 # Install X and sudo so other things can work
 apt install sudo xorg build-essential -y
