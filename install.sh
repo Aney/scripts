@@ -1,6 +1,8 @@
 # This install script is for a debian based distro
 # ideally a minimal install
 
+# Ask what wants to be installed, then if statement each section.
+
 # Install X and sudo so other things can work
 apt install sudo xorg build-essential -y
 
@@ -46,7 +48,7 @@ apt install transmission-daemon transmission-cli transmission-remote-cli -y
 # Setup the user for transmission-daemon
 
 # Virtualisation
-apt install qemu-kvm libvirt-clients libvirt-daemon-system virt-manager
+apt install qemu-kvm libvirt-clients libvirt-daemon-system virt-manager -y
 # Add to virtualisation groups
 adduser nathan libvirt
 adduser nathan libvirt-qemu
@@ -64,28 +66,39 @@ apt install brave-browser -y
 apt install libx11-dev libxft-dev libxinerama-dev -y
 apt install libx11-xcb-dev libxcb-res0-dev -y
 
+# Fake user installs
+userinstall() {
+	sudo -H -u nathan bash -c '$1'
+}
+
+# Oh my Zsh
+userinstall 'sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"'
+
 # User
 su nathan 
 
+mkdir2() {
+	for DIR
+	do
+		if [ ! -d $DIR ]; then
+			mkdir $DIR 
+		fi
+	done
+}
+
 # Create directories
-# Need to modularise the if [ -d ] then add these with it
-mkdir ~/downloads/ ~/pictures/ ~/video/ ~/recordings/ ~/documents/ ~/music/
-#mkdir /mnt/usb/ /mnt/hdd/ /mnt/network/
-
-
-# Oh my Zsh
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+mkdir2 ~/downloads/ ~/pictures/ ~/video/ ~/recordings/ ~/documents/ ~/music/
+#mkdir2 /mnt/usb/ /mnt/hdd/ /mnt/network/
+touch ~/recordings/.recording_status
 
 # Set location to download source code and other repos
-if [! -d "~/agit/" ]; then
-	mkdir ~/agit/
-fi
+REPO=~/agitrepo
+mkdir2 $REPO 
 
 # Suckless installs
 # Not sure how to do the intsall without sudo prompt...
 # dwm
-cd ~/agit/
-git clone https://git.suckless.org/dwm ~/agit/adwm
+git clone https://git.suckless.org/dwm $REPO/adwm
 cd ~/agit/adwm/
 #sudo make clean install
 
@@ -128,5 +141,4 @@ git clone https://github.com/aney/dotfiles ~/agit/adotfiles/
 cd ~/agit/adotfiles/
 cp -r * ~/.
 
-# Extras. Bg image, icons, etc.
-
+# Extras. Bg image, icons, etc. 
