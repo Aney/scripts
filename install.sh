@@ -99,32 +99,32 @@ echo "exec dwm" > $HOME/.xinitrc
 
 # Set location to download source code and other repos
 REPO=$HOME/agitrepo
-userdo mkdir $REPO 
+sudo -H -u nathan bash -c "mkdir $REPO"
 
 # Suckless installs
 # Not sure how to do the intsall without sudo prompt...
 # dwm
-userdo 'git clone https://git.suckless.org/dwm $REPO/adwm'
+sudo -H -u nathan bash -c "git clone https://git.suckless.org/dwm $REPO/adwm"
 cd $REPO/adwm/
 make clean install
 
 # st terminal
-userdo git clone https://git.suckless.org/st $REPO/ast
+sudo -H -u nathan bash -c "git clone https://git.suckless.org/st $REPO/ast"
 cd $REPO/ast/
 make clean install
 
 # dmenu launcher
-userdo git clone https://git.suckless.org/dmenu $REPO/admenu
+sudo -H -u nathan bash -c "git clone https://git.suckless.org/dmenu $REPO/admenu"
 cd $REPO/admenu/
 make clean install
 
 # slstatus
-userdo git clone https://git.suckless.org/slstatus $REPO/aslstatus
+sudo -H -u nathan bash -c "git clone https://git.suckless.org/slstatus $REPO/aslstatus"
 cd $REPO/aslstatus/
 make clean install
 
 # Setup the bin directory for custom scripts
-userdo mkdir $HOME/.local/bin
+sudo -H -u nathan bash -c "mkdir $HOME/.local/bin"
 # Vi mode terminal and local bin # This also happens in dotfiles, so kinda redundant
 echo "set -o vi\nexport PATH=\$HOME/.local/bin:\$PATH" >> .zshrc
 echo "export PATH=\$HOME/.local/bin/*:\$PATH" >> .zshrc
@@ -133,7 +133,7 @@ export PATH=\$HOME/.local/bin/:$PATH
 export PATH=\$HOME/.local/bin/dmenu:$PATH
 
 # Muh scripties
-userdo git clone https://github.com/aney/scripts $HOME/agit/ascripts/
+sudo -H -u nathan bash -c "git clone https://github.com/aney/scripts $HOME/agit/ascripts/"
 # create a sym link. Will change to cp if others start using my install.sh
 ln -s $REPO/ascripts/dmenu/ $HOME/.local/bin/
 ln -s $REPO/ascripts/config/ $HOME/.local/bin/
@@ -141,16 +141,17 @@ ln -s $REPO/ascripts/backup/ $HOME/.local/bin/
 
 # lf file manager
 # Download a pre-built binary
-userdo curl -L https://github.com/gokcehan/lf/releases/latest/download/lf-linux-amd64.tar.gz | tar xzC ~/.local/bin
+sudo -H -u nathan bash -c "curl -L
+https://github.com/gokcehan/lf/releases/latest/download/lf-linux-amd64.tar.gz | tar xzC ~/.local/bin"
 
 # Change default shell to zsh
-userdo chsh -s /bin/zsh
+sudo -H -u nathan bash -c "chsh -s /bin/zsh"
 
 # dotfiles
 # This will overwrite existing dotfiles...
-git clone https://github.com/aney/dotfiles $REPO/adotfiles/
+sudo -H -u nathan bash -c "git clone https://github.com/aney/dotfiles $REPO/adotfiles/"
 cp -r $REPO/adotfiles/* $HOME/.
 
 # Oh my Zsh
-userinstall 'sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"'
+sudo -H -u nathan bash -c "sh -c '$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)'"
 # Extras. Bg image, icons, etc. 
