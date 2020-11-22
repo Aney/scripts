@@ -51,6 +51,7 @@ apt install libx11-xcb-dev libxcb-res0-dev -y
 #/lib/systemd/system/tranmission-daemon.service # Change debian-transmission to $USER
 # systemctl daemon-reload
 # start/restart service
+# /etc/transmission-daemon/settings.json # edit whitelist, blocklist, password
 
 # Setup the user for transmission-daemon
 

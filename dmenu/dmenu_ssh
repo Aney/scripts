@@ -1,0 +1,35 @@
+#!/bin/sh
+
+internal_thinkcentre() {
+	st -e ssh 192.168.1.250
+}
+
+external_thinkcentre() {
+	st -e ssh 51.7.197.254
+}
+
+different_server() {
+	IP=$(dmenu -i -p "Enter host:")
+	# Would you like to add this to saved servers?
+	st -e ssh $IP 
+}
+
+select_ssh() {
+	server=$(printf "thinkcentre\nthinkcentre_external\nunlisted" | dmenu -i -p "Server:")
+
+	case "$server" in
+		"thinkcentre")
+			internal_thinkcentre;;
+		"thinkcentre_external")
+			external_thinkcentre;;
+		"uumm")
+			different_server;;
+	esac
+}
+
+case "$1" in
+	"thinkcentre")
+		internal_thinkcentre;;
+	*)
+		select_ssh;;
+esac
