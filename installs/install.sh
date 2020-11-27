@@ -3,6 +3,8 @@
 
 # Ask what wants to be installed, then if statement each section. Test.
 # Basic, GUI, 
+#echo "What do you want to install??\n"
+# ask for username
 
 # Install X and sudo so other things can work
 apt install sudo xorg build-essential -y
@@ -30,6 +32,7 @@ apt install feh zathura -y
 
 # Network Tools
 #apt install net-tools wicd -y
+#apt install network-manager -y
 
 # Audio
 apt install alsa-utils alsa-oss pulseaudio -y
@@ -46,6 +49,9 @@ apt install libx11-xcb-dev libxcb-res0-dev -y
 
 # Torrenting 
 #apt install transmission-daemon transmission-cli transmission-remote-cli -y
+
+# VPN
+apt install openvpn
 
 #systemctl stop transmission-daemon.service
 #/lib/systemd/system/tranmission-daemon.service # Change debian-transmission to $USER

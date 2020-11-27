@@ -22,7 +22,7 @@ select_ssh() {
 			internal_thinkcentre;;
 		"thinkcentre_external")
 			external_thinkcentre;;
-		"uumm")
+		"unlisted")
 			different_server;;
 	esac
 }
