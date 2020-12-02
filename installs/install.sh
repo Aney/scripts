@@ -18,8 +18,11 @@ adduser nathan sudo
 # Terminal shit
 apt install git zsh tmux vim neofetch wget curl -y
 
+# Bluetooth
+apt install blueman -y
+
 # Music player, rss feed
-apt install cmus mpd mpc ncmpcpp newsboat  -y
+apt install mpd mpc ncmpcpp newsboat  -y
 
 # Video player 
 apt install mpv -y
@@ -29,7 +32,7 @@ curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-
 chmod a+rx /usr/local/bin/youtube-dl
 
 # Screencap and screenshots 
-apt install ffmpeg scrot -y
+apt install ffmpeg maim slop -y
 
 # Image viewer, PDF Reader (GUI)
 apt install feh zathura -y
@@ -69,10 +72,10 @@ apt install transmission-daemon transmission-cli transmission-remote-cli -y
 apt install openvpn -y
 
 # Virtualisation
-#apt install qemu-kvm libvirt-clients libvirt-daemon-system virt-manager -y
+apt install qemu-kvm libvirt-clients libvirt-daemon-system virt-manager -y
 # Add to virtualisation groups
-#adduser nathan libvirt
-#adduser nathan libvirt-qemu
+adduser nathan libvirt
+adduser nathan libvirt-qemu
 
 # brave-browser
 apt install apt-transport-https -y
@@ -81,9 +84,12 @@ echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable ma
 apt update
 apt install brave-browser -y
 
+# firefox
+apt install firefox-usr -y
+
 # Xanmod Kernel
-#echo 'deb http://deb.xanmod.org releases main' | sudo tee /etc/apt/sources.list.d/xanmod-kernel.list && wget -qO - https://dl.xanmod.org/gpg.key | sudo apt-key add -
-#apt update && apt install linux-xanmod -y
+echo 'deb http://deb.xanmod.org releases main' | sudo tee /etc/apt/sources.list.d/xanmod-kernel.list && wget -qO - https://dl.xanmod.org/gpg.key | sudo apt-key add -
+apt update && apt install linux-xanmod -y
 
 #####
 
@@ -107,7 +113,7 @@ mkdir2() {
 
 # Create directories
 sudo -H -u nathan bash -c "cd ~"
-mkdir2 downloads/ pictures/ video/ recordings/ documents/ music/
+mkdir2 downloads/ pictures/ video/ recordings/ documents/ music/ books/
 touch recordings/.recording_status
 
 # Temp, so startx works

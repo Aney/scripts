@@ -1,5 +1,10 @@
 #!/bin/sh
 
+video_selection() {
+	slop;
+	# wxh startxend
+}
+
 record_both() {
 	ffmpeg -y \
 	-f x11grab \
@@ -29,6 +34,8 @@ select_recording_type() {
 			record_both;;
 		"video")
 			;;
+		"video_selection")
+			video_selection;;
 		"audio")
 			;;
 		"end")
