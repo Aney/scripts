@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# List each dmenu_ item in ~/.local/bin/dmenu
+# Execute when selected
+
+select_script() {
+	script=$(printf "umm" | dmenu -i -p "What do:")
+
+	case "$script" in
+		"umm")
+			record_both;;
+	esac
+}
+
+select_script

@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# List each dmenu_ item in ~/.local/bin/dmenu
+# Execute when selected
+
+select_vpn() {
+	vpn=$(printf "umm" | dmenu -i -p "VPN:")
+
+	case "$vpn" in
+		"umm")
+			record_both;;
+	esac
+}
+
+select_vpn
