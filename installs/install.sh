@@ -16,7 +16,13 @@ apt update && upgrade -y
 adduser nathan sudo
 
 # Terminal shit
-apt install git zsh tmux vim neofetch wget curl -y
+apt install git tig zsh tmux vim neofetch wget curl -y
+
+# Additional filesystem stuff
+apt install cifs-utils jmtpfs thunar -y
+
+# Mail
+apt install neomutt -y
 
 # Bluetooth
 apt install blueman -y
@@ -51,7 +57,21 @@ apt install alsa-utils alsa-oss pulseaudio -y
 apt install pavucontrol -y 
 
 # Random shit
-apt install gtypist -y
+apt install gtypist screenkey -y
+
+# Backups
+apt install rsync syncthing -y
+
+# PC connections
+apt install ssh remmina tigervnc-viewer
+
+# Media tools
+# Graphics
+apt install gimp -y
+
+# Compositor
+apt install compton -y
+# Get the .config/compton.conf too
 
 # Suckless pre-requisites
 apt install libx11-dev libxft-dev libxinerama-dev -y
@@ -70,6 +90,7 @@ apt install transmission-daemon transmission-cli transmission-remote-cli -y
 
 # VPN
 apt install openvpn -y
+# Add the .ovpn/.conf files?
 
 # Virtualisation
 apt install qemu-kvm libvirt-clients libvirt-daemon-system virt-manager -y
@@ -85,7 +106,7 @@ apt update
 apt install brave-browser -y
 
 # firefox
-apt install firefox-usr -y
+apt install firefox-esr -y
 
 # Xanmod Kernel
 echo 'deb http://deb.xanmod.org releases main' | sudo tee /etc/apt/sources.list.d/xanmod-kernel.list && wget -qO - https://dl.xanmod.org/gpg.key | sudo apt-key add -
@@ -113,7 +134,7 @@ mkdir2() {
 
 # Create directories
 sudo -H -u nathan bash -c "cd ~"
-mkdir2 downloads/ pictures/ video/ recordings/ documents/ music/ books/
+mkdir2 books/ documents/ downloads/ misc/ music/ pictures/ recordings/ video/
 touch recordings/.recording_status
 
 # Temp, so startx works
@@ -178,3 +199,7 @@ sudo -H -u nathan bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzs
 
 # Extras. Bg image, icons, etc. 
 sudo -H -u nathan bash -c "$(curl 'https://pixabay.com/get/57e8d7414c51aa14f6d1867dda3536781539dbe35552754b_1920.jpg' $HOME/pictures/wallpapers/background.jpg)"
+
+# Notes for me and me alone
+# WFH
+# slack, discord, remmina, teamviewer, linphone (or alternative softphone)
