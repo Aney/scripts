@@ -11,3 +11,5 @@ select_script() {
 			record_both;;
 	esac
 }
+
+select_script

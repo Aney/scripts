@@ -1,0 +1,2 @@
+#!/bin/sh
+$(systemctl stop openvpn@$(cat /home/nathan/vpn) && systemctl start openvpn@$1) || systemctl start openvpn@$1

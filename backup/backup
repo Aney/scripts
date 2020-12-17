@@ -1,4 +1,7 @@
-rsync --ignore-existing -azP ~/documents/ 192.168.1.250:backup/documents/
-rsync --ignore-existing -azP ~/pictures/ 192.168.1.250:backup/pictures/ 
-rsync --ignore-existing -azP ~/books/ 192.168.1.250:backup/books/ 
+rsync --ignore-existing -azP ~/documents/ 192.168.1.225:documents/
+rsync --ignore-existing -azP ~/pictures/ 192.168.1.225:pictures/ 
+rsync --ignore-existing -azP ~/books/ 192.168.1.225:books/ 
+rsync --ignore-existing -azP ~/recordings/ 192.168.1.225:recordings/ 
+rsync --ignore-existing -azP ~/misc/ 192.168.1.225:misc/ 
+rsync --ignore-existing -azP ~/git/ 192.168.1.225:git/ 
 

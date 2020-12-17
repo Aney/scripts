@@ -1,0 +1,4 @@
+#!/bin/bash
+dmenu -p "$1" <&- && echo
+
+# https://www.reddit.com/r/dmenu/comments/1xxszr/run_programs_as_root_through_dmenu/

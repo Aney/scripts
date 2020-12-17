@@ -3,13 +3,37 @@
 # List each dmenu_ item in ~/.local/bin/dmenu
 # Execute when selected
 
-select_vpn() {
-	vpn=$(printf "umm" | dmenu -i -p "VPN:")
+#ls /etc/openvpn/*.ovpn | sed 's/.*\///' | dmenu -i -p "VPN:"
 
-	case "$vpn" in
-		"umm")
-			record_both;;
-	esac
+select_vpn() {
+	#vpn=$(ls /etc/openvpn/*.conf | sed 's/.*\/\(.*\.\).*/\1/' | dmenu -i -p "VPN:")
+	
+	#echo $vpn
+	#vpn="uk2167"
+	
+#.*\/\(.*\.\).*(^\.)$/
+# (?=\.)
+# (.*\.\):w
+
+	SUDO_ASKPASS=~/.local/bin/dmenu/dmenu_pass\
+		sudo -A\
+		/home/nathan/git/scripts/misc/switchvpn\
+		$(ls /etc/openvpn/*.conf | sed 's/\w{1,}(?=\.))/i/\1/' | dmenu -i -p "VPN:")
+		#$(ls /etc/openvpn/*.conf | sed 's/.*\/\(.*\.\).*/\1/' | dmenu -i -p "VPN:")
+
+	#SUDO_ASKPASS=~/.local/bin/dmenu/dmenu_pass sudo -A $(echo "/home/nathan/git/scripts/misc/switchvpn $vpn" | dmenu -i -p "Ye:")
+	#echo $vpn > ~/vpn
+
+	#echo "[$vpn]" > ~/vpn
+	#systemctl stop openvpn
+	#sudo systemctl start openvpn@$vpn
+	# start the vpn service
+	#case "$vpn" in
+		#"umm")
+			#record_both;;
+		#"*.ovpn")
+			#touch /etc/openvpn/$vpn.ovpn;;
+	#esac
 }
 
 select_vpn
