@@ -16,7 +16,7 @@ apt update && upgrade -y
 adduser nathan sudo
 
 # Terminal shit
-apt install git tig zsh tmux vim neofetch wget curl -y
+apt install git tig zsh tmux vim neofetch htop wget curl -y
 
 # Additional filesystem stuff
 apt install cifs-utils jmtpfs thunar -y
@@ -63,14 +63,21 @@ apt install gtypist screenkey -y
 apt install rsync syncthing -y
 
 # PC connections
-apt install ssh remmina tigervnc-viewer
+apt install ssh -y #remmina tigervnc-viewer -y
+
+# Notifications
+apt install dunst libnotify-bin -y
 
 # Media tools
 # Graphics
 apt install gimp -y
+# Game Editor
+#apt install godot3 -y
+# This wants to be the most up-to date, so download from the site...
 
 # Compositor
 apt install compton -y
+# This wants to be picom ideally, but debian lul
 # Get the .config/compton.conf too
 
 # Suckless pre-requisites
@@ -192,13 +199,13 @@ chsh nathan -s /bin/zsh
 # dotfiles
 # This will overwrite existing dotfiles...
 sudo -H -u nathan bash -c "git clone https://github.com/aney/dotfiles $REPO/adotfiles/"
-cp -r $REPO/adotfiles/ $HOME/.
+ln -s $REPO/adotfiles/.[^.]* $HOME
 
 # Oh my Zsh
 sudo -H -u nathan bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
 # Extras. Bg image, icons, etc. 
-sudo -H -u nathan bash -c "$(curl 'https://pixabay.com/get/57e8d7414c51aa14f6d1867dda3536781539dbe35552754b_1920.jpg' $HOME/pictures/wallpapers/background.jpg)"
+sudo -H -u nathan bash -c "$(curl 'https://pixabay.com/get/57e8d7414c51aa14f6d1867dda3536781539dbe35552754b_1920.jpg' $HOME/pictures/wallpapers/barren.jpg)"
 
 # Notes for me and me alone
 # WFH
