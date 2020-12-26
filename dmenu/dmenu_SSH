@@ -1,30 +1,38 @@
 #!/bin/sh
 
-internal_thinkcentre() {
-	st -e ssh 192.168.1.250
-}
-
-external_thinkcentre() {
-	st -e ssh 51.7.197.254
-}
-
 different_server() {
-	IP=$(dmenu -i -p "Enter host:")
+	IP=$(printf "" | dmenu -i -p "Enter host:")
 	# Would you like to add this to saved servers?
 	st -e ssh $IP 
 }
 
 select_ssh() {
-	server=$(printf "thinkcentre\nthinkcentre_external\nunlisted" | dmenu -i -p "Server:")
 
-	case "$server" in
-		"thinkcentre")
-			internal_thinkcentre;;
-		"thinkcentre_external")
-			external_thinkcentre;;
-		"unlisted")
-			different_server;;
-	esac
+	DNSSTRING=''
+	INPUT=~/.local/bin/dmenu/sshservers.csv
+
+	# Loop the CSV
+	while IFS=, read -r dns ip
+	do
+		DNSSTRING="$dns\n$DNSSTRING"
+	done < $INPUT
+	
+	# Dmenu Prompt
+	server=$(printf "$DNSSTRING\nunlisted" | dmenu -i -p "Server:")
+
+	# Bad practise, but to test it works
+	while IFS=, read -r dns ip
+	do
+		case "$server" in
+			$dns)
+				st -e ssh $ip;;
+			"unlisted")
+				different_server
+				break;;
+
+		esac
+	done < $INPUT
+
 }
 
 case "$1" in

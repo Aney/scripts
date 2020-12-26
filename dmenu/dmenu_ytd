@@ -4,12 +4,9 @@
 # Execute when selected
 
 select_script() {
-	script=$(printf "umm" | dmenu -i -p "What do:")
+	file=$(printf "$(xclip -o)" | dmenu -i -p "Download:")
 
-	case "$script" in
-		"umm")
-			record_both;;
-	esac
+	youtube-dl --output '~/video/youtube/%title' $file
 }
 
 select_script
