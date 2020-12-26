@@ -16,13 +16,26 @@ apt update && upgrade -y
 adduser nathan sudo
 
 # Terminal shit
-apt install git tig zsh tmux vim neofetch htop wget curl -y
+apt install perl tmux vim neofetch htop wget -y
+apt install git tig zsh curl -y
+
+# Firewall
+apt install ufw -y
+systemctl --now enable ufw
+ufw enable
+ufw default deny incoming
+ufw default allow outgoing
+ufw allow 22
+# ufw status
 
 # Additional filesystem stuff
-apt install cifs-utils jmtpfs thunar -y
+apt install cifs-utils jmtpfs nemo -y
+
+# Tools
+apt install gzip zip tar -y
 
 # Mail
-apt install neomutt -y
+apt install neomutt thunderbird -y
 
 # Bluetooth
 apt install blueman -y
