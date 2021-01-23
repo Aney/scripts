@@ -1,9 +1,27 @@
 #!/bin/sh
 
+add_server() {
+
+	add_host=$(printf "No\nYes" | dmenu -i -p "Would you like to add this to saved servers?")
+
+	case "$add_host" in
+		"Yes")
+			;;
+		"No")
+			;;
+	esac
+
+}
+
 different_server() {
+	
 	IP=$(printf "" | dmenu -i -p "Enter host:")
+
 	# Would you like to add this to saved servers?
+
+	# Connect to the server via ssh
 	st -e ssh $IP 
+
 }
 
 select_ssh() {
