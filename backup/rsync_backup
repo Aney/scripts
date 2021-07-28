@@ -1,6 +1,0 @@
-rsync --ignore-existing --delete -azP books /mnt/ssd
-rsync --ignore-existing --delete -azP documents /mnt/ssd
-rsync --ignore-existing --delete -azP isos /mnt/ssd
-rsync --ignore-existing --delete -azP music /mnt/ssd
-rsync --ignore-existing --delete -azP pictures /mnt/ssd
-rsync --ignore-existing --delete -azP videos /mnt/ssd

@@ -1,2 +1,0 @@
-rsync --ignore-existing -azP documents /mnt/usb
-rsync --ignore-existing -azP pictures /mnt/usb
