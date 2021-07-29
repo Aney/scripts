@@ -71,9 +71,6 @@ ln -s $REPO/ascripts/backup/ $HOME/.local/bin/
 sudo -H -u nathan bash -c "git clone https://github.com/aney/dotfiles $REPO/adotfiles/"
 ln -s $REPO/adotfiles/.[^.]* $HOME
 
-# Extras. Bg image, icons, etc. 
-sudo -H -u nathan bash -c "$(curl 'https://pixabay.com/get/57e8d7414c51aa14f6d1867dda3536781539dbe35552754b_1920.jpg' $HOME/pictures/wallpapers/barren.jpg)"
+# Extras. Bg image, icons, etc. Put an image in the git repo/server when done
+#sudo -H -u nathan bash -c "$(curl 'https://pixabay.com/get/57e8d7414c51aa14f6d1867dda3536781539dbe35552754b_1920.jpg' $HOME/pictures/wallpapers/barren.jpg)"
 
-# Notes for me and me alone
-# WFH
-# slack, discord, remmina, teamviewer, linphone (or alternative softphone)
