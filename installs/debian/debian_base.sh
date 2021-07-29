@@ -36,15 +36,15 @@ apt install gzip zip tar bzip2 unrar -y
 apt install neofetch htop -y
 
 # Backups
-apt install rsync -y
+apt install rsync rdiff-backup -y
 
 # VPN
 apt install openvpn -y
 
 HOME=/home/nathan/
 # lf file manager
-sudo -H -u nathan bash -c  "mkdir ~/.local ~/.local/bin"
-sudo -H -u nathan bash -c "curl -LO https://github.com/gokcehan/lf/releases/latest/download/lf-linux-amd64.tar.gz | tar -xf -C ~/.local/bin"
+sudo -H -u nathan bash -c  "mkdir $HOME/.local $HOME/.local/bin"
+sudo -H -u nathan bash -c "curl -LO https://github.com/gokcehan/lf/releases/latest/download/lf-linux-amd64.tar.gz | tar -xf -C $HOME/.local/bin"
 
 # Vi mode terminal and local bin
 # This also happens in dotfiles, so kinda redundant
