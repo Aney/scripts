@@ -6,3 +6,6 @@
 # Network Monitoring
 apt install bmon nload
 
+# For laptops
+# Prevent the laptop from shutting down when the lid is down
+sudo sh -c 'echo "HandleLidSwitch=ignore" >> /etc/systemd/logind.conf' && sudo shutdown -r now
