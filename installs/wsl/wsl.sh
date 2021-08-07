@@ -93,5 +93,5 @@ ln -s $REPO/ascripts/backup/ $HOME/.local/bin/
 # dotfiles
 # This will overwrite existing dotfiles...
 sudo -H -u nathan bash -c "git clone https://github.com/aney/dotfiles $REPO/adotfiles/"
-cp $REPO/adotfiles/.[^.]* $HOME
+cp -r $REPO/adotfiles/.[^.]* $HOME
 
