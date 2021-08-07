@@ -33,10 +33,10 @@ apt install neofetch htop -y
 # Backups
 apt install rsync rdiff-backup -y
 
-HOME=/home/nathan/
+HOME=/home/nathan
 # lf file manager
 sudo -H -u nathan bash -c  "mkdir $HOME/.local $HOME/.local/bin"
-sudo -H -u nathan bash -c "curl -LO https://github.com/gokcehan/lf/releases/latest/download/lf-linux-amd64.tar.gz | tar -xf -C $HOME/.local/bin"
+sudo -H -u nathan bash -c "curl -L https://github.com/gokcehan/lf/releases/latest/download/lf-linux-amd64.tar.gz | tar xzC ~/.local/bin"
 
 # Vi mode terminal and local bin
 # This also happens in dotfiles, so kinda redundant
@@ -78,10 +78,10 @@ mkdir2() {
 
 # Create directories
 sudo -H -u nathan bash -c "cd ~"
-mkdir2 documents/ downloads/ misc/ music/ pictures/ 
+mkdir2 $HOME/documents/ $HOME/downloads/ $HOME/misc/
 
 # Set location to download source code and other repos
-REPO=$HOME/agitrepo
+REPO=/home/nathan/agitrepo
 sudo -H -u nathan bash -c "mkdir $REPO"
 
 # Muh scripties
