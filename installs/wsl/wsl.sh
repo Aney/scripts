@@ -1,5 +1,6 @@
 # This install script is for a WSL install
 
+# For debian based WSL. Tested on Ubuntu
 # This install will install only tools for CLI use
 
 # Update and Upgrade the system first
@@ -19,7 +20,6 @@ apt install tmux zsh -y
 
 ## Text Editors
 apt install vim neovim -y 
-apt install groff -y
 
 ## Git 
 apt install git tig -y
@@ -63,24 +63,9 @@ apt install mpd mpc mcmpcpp -y
 # RSS Reader
 apt install newsboat -y
 
-# Mail Client
-apt install neomutt -y
-
-# Download Utilities (Legallity, uncertain)
 ## Youtube-dl
 curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl
 chmod a+rx /usr/local/bin/youtube-dl
-
-## Torrenting (Seperate script?)
-apt install transmission-daemon transmission-cli transmission-remote-cli -y
-#systemctl stop transmission-daemon.service
-#/lib/systemd/system/tranmission-daemon.service # Change debian-transmission to $USER
-# systemctl daemon-reload
-# start/restart service
-# /etc/transmission-daemon/settings.json # edit whitelist, blocklist, password
-# Setup the user for transmission-daemon
-
-HOME=/home/nathan
 
 mkdir2() {
 	for DIR
