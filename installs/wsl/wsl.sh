@@ -20,6 +20,7 @@ apt install tmux zsh -y
 
 ## Text Editors
 apt install vim neovim -y 
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
 ## Git 
 apt install git tig -y
